@@ -41,7 +41,7 @@ def login_user(request):
                 login(request,user)
                 request.session['id'] = user.id
 
-                return render(request, 'codeoffapp/view_profile.html')
+                return render(request, 'codeoffapp/home.html')
             else:
                 return HttpResponse("Inactive User")
         else:
