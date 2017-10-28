@@ -128,6 +128,8 @@ def home(request):
             post.save()
               
     return render(request, 'codeoffapp/home.html',{'form': form,'obj':obj})
+    form=PostForm()
+            
     
 
 

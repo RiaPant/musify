@@ -114,6 +114,11 @@ line-height: 22px;
 img {
 min-height: 40px;
 max-height: 40px;
+
+.jumbotron{
+    height:100px;
+    width:600px;
+}
 }
 </style>
 {% endblock %}
@@ -124,13 +129,30 @@ max-height: 40px;
 {% endblock %}
 
 <div class="container">
-<br><br><br>
+&nbsp;
+&nbsp;
+&nbsp;
+</br>
+<div class="row">
+</div>
+<div class="row">
+
+
+<div class="col-md-3 col-sm-3" >
+</div>
+<div class="col-md-6 col-sm-6">
+
+
+<div class="jumbotron" style="width:600px;height:350px;">
 <form action="{% url 'home' %}" method="post">
         {% csrf_token %}
         {{form.as_p}}
     <br>
-        <input type="submit" value="Order" class="btn btn-warning" id="button"/>
+        <input type="submit" value="Post" class="btn btn-primary" id="button"/>
 </form>
+</div>
+</div>
+</div>
 
 <!-- <form>
 <div class="form-group">
