@@ -119,7 +119,8 @@ def home(request):
             post.post_text=request.POST.get('post_text')
             post.File = request.POST.get('File')
             post.save()
+    form=PostForm()
             
-    return render(request, 'codeoffapp/home.html')
+    return render(request, 'codeoffapp/home.html',{'form': form})
 
 
