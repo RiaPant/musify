@@ -65,12 +65,14 @@ def register(request):
         Interest=request.POST.get('Interest')
         Genre=request.POST.get('Genre')
         Associated_with=request.POST.get('Associated_with')
+        Status=request.POST.get('Status')
+        Score=request.POST.get('Score')
         print ("Hello!")
 
         p1=User(username=username,email=email,password=password,first_name=firstname,last_name=lastname)
         p1.set_password(password)
         p1.save()
-        newUser=Profile(user=p1,Interest=Interest,Genre=Genre,Associated_with=Associated_with)
+        newUser=Profile(user=p1,Interest=Interest,Genre=Genre,Associated_with=Associated_with,Status=Status,Score=Score)
         newUser.save()
         #print ("Hello!1")
         subject = 'Registration Successful- Musify'
@@ -120,7 +122,8 @@ def home(request):
             print(request.session['id'])
             profile = Profile.objects.get(user=user)
             post.user_posted=profile
-            print(post.user_posted.user.username)
+            
+            print(Post.objects.all().values())
             post.post_text=request.POST.get('post_text')
             post.File = request.POST.get('File')
             post.Posted_On = datetime.datetime.now()
@@ -128,7 +131,7 @@ def home(request):
             post.save()
               
     return render(request, 'codeoffapp/home.html',{'form': form,'obj':obj})
-    form=PostForm()
+    
             
     
 
