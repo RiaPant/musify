@@ -46,5 +46,5 @@ class Post(models.Model):
 	user_posted = models.OneToOneField(Profile)
 	post_text = models.CharField(max_length=500)
 	File =models.FileField(upload_to = 'audio',blank=True)
-	Posted_On = models.DateField(auto_now=True)
+	Posted_On = models.DateTimeField(auto_now=True)
 

@@ -34,6 +34,7 @@ from django.contrib.auth import update_session_auth_hash
 # Create your views here.
 
 def login_user(request):
+    obj = Post.objects.all()
     if request.method == "POST":
         mail = request.POST['username']
         password = request.POST['password']
@@ -43,7 +44,7 @@ def login_user(request):
                 login(request,user)
                 request.session['id'] = user.id
                 form = PostForm()    
-                return render(request, 'codeoffapp/home.html',{'form': form})
+                return render(request, 'codeoffapp/home.html',{'form': form,'obj':obj})
             else:
                 return HttpResponse("Inactive User")
         else:
@@ -71,7 +72,7 @@ def register(request):
         p1.save()
         newUser=Profile(user=p1,Interest=Interest,Genre=Genre,Associated_with=Associated_with)
         newUser.save()
-        print ("Hello!1")
+        #print ("Hello!1")
         subject = 'Registration Successful- Musify'
 
         message = 'Greetings! You have been successfully registered on Musify - An Online Music Platform. Now you can easily find friends anywhere by just visiting our website. '
@@ -109,17 +110,24 @@ def view_profile(request):
         return render(request, 'codeoffapp/login.html')
 
 def home(request):
+    form = PostForm()  
+    obj = Post.objects.all()
     if request.method=='POST':
-        form = PostForm(request.POST,request.FILES)
-        if form.is_valid():
+        form1 = PostForm(request.POST,request.FILES)
+        if form1.is_valid():
             post = Post()
             user = User.objects.get(id=request.session['id'])
+            print(request.session['id'])
             profile = Profile.objects.get(user=user)
             post.user_posted=profile
+            print(post.user_posted.user.username)
             post.post_text=request.POST.get('post_text')
             post.File = request.POST.get('File')
+            post.Posted_On = datetime.datetime.now()
+
             post.save()
-            
-    return render(request, 'codeoffapp/home.html')
+              
+    return render(request, 'codeoffapp/home.html',{'form': form,'obj':obj})
+    
 
 
