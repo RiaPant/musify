@@ -1,0 +1,15 @@
+dj-database-url==0.4.2
+dj-static==0.0.6
+Django==1.11.3
+django-toolbelt==0.0.1
+gunicorn==19.7.1
+image==1.5.7
+npm==0.1.1
+olefile==0.44
+optional-django==0.1.0
+Pillow==4.2.1
+pprint==0.1
+psycopg2==2.7.1
+pytz==2017.2
+static3==0.7.0
+whitenoise==3.3.0
