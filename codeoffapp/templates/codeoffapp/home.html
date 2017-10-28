@@ -1,5 +1,7 @@
-{% extends 'codeoffapp/navbar.html' %}
+{% extends 'navbar.html' %}
   {% block head %}
+  {{block.super}} 
+
   <title>Musify- Home</title>
   <style> .message-item {
 margin-bottom: 25px;
@@ -113,6 +115,11 @@ img {
 </style>
   {% endblock %}
   {%block body %}
+
+  {% block navbar %}
+{{block.super}}
+{% endblock %}
+
   <div class="container">
   <form>
     <div class="form-group">

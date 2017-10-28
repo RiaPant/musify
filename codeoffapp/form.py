@@ -3,7 +3,7 @@ import re
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django import forms
-from .models import Profile
+from .models import Profile,Post
 import datetime
  
 
@@ -33,6 +33,6 @@ class UserForm(forms.ModelForm):
 
 class PostForm(forms.ModelForm):
     class Meta:
-        model = post
-        fields = ['Post', 'File']
-        
+        model = Post
+        fields = ('post_text',)
+

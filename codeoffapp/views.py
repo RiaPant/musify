@@ -106,4 +106,7 @@ def view_profile(request):
     else:
         return render(request, 'codeoffapp/login.html')
 
+def home(request):
+    return render(request, 'codeoffapp/home.html')
+
 

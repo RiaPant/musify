@@ -42,9 +42,9 @@ class Profile(models.Model):
 	default=Classical,)
 	Associated_with= models.CharField(max_length=32)
 
-class post(models.Model):
-	user_posted = models.OneToOneField(Profile),
-	Post = models.CharField(max_length=500),
-	File =models.FileField(upload_to = 'music'),
+class Post(models.Model):
+	user_posted = models.OneToOneField(Profile)
+	post_text = models.CharField(max_length=500)
+	#File =models.FileField(upload_to = 'music'),
 	Posted_On = models.DateField(auto_now=True)
 
