@@ -131,7 +131,9 @@ def home(request):
             post.save()
               
     return render(request, 'codeoffapp/home.html',{'form': form,'obj':obj})
-    
+
+def search(request):    
+    return render(request, 'codeoffapp/search.html')
             
     
 
