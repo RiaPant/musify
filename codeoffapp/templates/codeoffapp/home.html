@@ -1,5 +1,7 @@
 {% extends 'navbar.html' %}
+
 {% block head %}
+{% load static %}
 {{block.super}} 
 
 <title>Musify- Home</title>
@@ -184,7 +186,7 @@ max-height: 40px;
                                         <span class="qa-message-when">
                                             <span class="qa-message-when-data">{{ob.Posted_On}}</span>
                                         </span>
-                                        {% load static %}
+                                        
                                         <audio controls>
   										<source src="{% static "codeoffapp/hello.ogg" %}" type="audio/ogg">
 										Your browser does not support the audio element.
