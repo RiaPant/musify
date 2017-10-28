@@ -7,6 +7,7 @@ from . import views
 
 urlpatterns = [
    	url(r'^register',views.register,name='register'),
+   	url(r'^search',views.search,name='search'),
     url(r'^login_user/$', views.login_user, name='login_user'),
     url(r'^view_profile/$', views.view_profile, name='view_profile'),
     url(r'^home/$', views.home, name='home'),

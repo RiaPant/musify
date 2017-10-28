@@ -1,0 +1,22 @@
+{% extends 'navbar.html' %}
+{% block head %}
+{{block.super}} 
+{% endblock %}
+{% block body%}
+{% block navbar %}
+{{block.super}}
+{% endblock %}
+<br><br><br><br>
+<div class="container">
+<table class="table table-striped">
+	<tr><th>Name</th><th>Rating</th></tr>
+	<tr><td>Mitanshi</td><td>9</td></tr>
+	<tr><td>Shubhi</td><td>9</td></tr>
+	<tr><td>Sonali</td><td>8</td></tr>
+	<tr><td>Ria</td><td>7</td></tr>
+</table>
+<a href={% url 'home' %}><button type="button" class="btn btn-primary">BACK</button></a>
+</div>
+  
+
+{% endblock %}

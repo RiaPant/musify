@@ -24,7 +24,7 @@
 
     
    <div class="col-md-5">
-     <form class="navbar-form navbar-left" role="search" action="" method="post" enctype="multipart/form-data">
+     <form class="navbar-form navbar-left" role="search" action="{% url 'search'%}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Search" name="query">
@@ -39,7 +39,7 @@
 
     <div class="col-md-2 col-sm-6"  >
         <h2 style="text-align:left;font-size:16px;">
-           <b>Share and Care</b>  
+           <b>Musify</b>  
         </h2>
      </div>
 

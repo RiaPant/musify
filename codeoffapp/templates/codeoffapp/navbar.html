@@ -4,7 +4,7 @@
   {%block body %}
     <nav class="navbar navbar-inverse navbar-fixed-top">
    <div class="col-md-5">
-     <form class="navbar-form navbar-left" role="search" action="{% url 'search_book'%}" method="post" enctype="multipart/form-data">
+     <form class="navbar-form navbar-left" role="search" action="{% url 'search'%}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Search" name="query">
