@@ -137,11 +137,7 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'ShareAndCare/media')
-
-MEDIA_URL = "/media/"
+s
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'musify/media')
 
