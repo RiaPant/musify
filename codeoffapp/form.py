@@ -21,7 +21,7 @@ class SignUpForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('username','first_name','last_name','email', 'password1', 'password2','Interest','Genre','Associated_with')
+        fields = ('username','first_name','last_name','email', 'password1', 'password2','Interest','Genre','Associated_with','Status','Score')
 
     
 
