@@ -31,4 +31,8 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ['username', 'password']
 
-
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = post
+        fields = ['Post', 'File']
+        

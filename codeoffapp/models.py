@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	VOCAL='Vo',
@@ -40,3 +41,10 @@ class Profile(models.Model):
 	Genre = models.CharField(max_length=3,choices=genre,
 	default=Classical,)
 	Associated_with= models.CharField(max_length=32)
+
+class post(models.Model):
+	user_posted = models.OneToOneField(Profile),
+	Post = models.CharField(max_length=500),
+	File =models.FileField(upload_to = 'music'),
+	Posted_On = models.DateField(auto_now=True)
+
