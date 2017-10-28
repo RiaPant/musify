@@ -32,7 +32,8 @@ class UserForm(forms.ModelForm):
         fields = ['username', 'password']
 
 class PostForm(forms.ModelForm):
+    post_text = forms.CharField(widget=forms.Textarea)
     class Meta:
         model = Post
-        fields = ('post_text',)
+        fields = ('post_text','File')
 

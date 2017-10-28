@@ -3,8 +3,8 @@ from django.db import models
 from django import template
 from django.contrib.auth.models import User
 from django.template.loader import get_template
-from codeoffapp.form import SignUpForm
-from codeoffapp.models import Profile
+from codeoffapp.form import SignUpForm, PostForm
+from codeoffapp.models import Profile,Post
 from django.conf import settings
 
 from django.shortcuts import render,redirect
@@ -29,6 +29,8 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth import update_session_auth_hash
 
+
+
 # Create your views here.
 
 def login_user(request):
@@ -40,8 +42,8 @@ def login_user(request):
             if user.is_active:
                 login(request,user)
                 request.session['id'] = user.id
-
-                return render(request, 'codeoffapp/home.html')
+                form = PostForm()    
+                return render(request, 'codeoffapp/home.html',{'form': form})
             else:
                 return HttpResponse("Inactive User")
         else:
@@ -107,6 +109,17 @@ def view_profile(request):
         return render(request, 'codeoffapp/login.html')
 
 def home(request):
+    if request.method=='POST':
+        form = PostForm(request.POST,request.FILES)
+        if form.is_valid():
+            post = Post()
+            user = User.objects.get(id=request.session['id'])
+            profile = Profile.objects.get(user=user)
+            post.user_posted=profile
+            post.post_text=request.POST.get('post_text')
+            post.File = request.POST.get('File')
+            post.save()
+            
     return render(request, 'codeoffapp/home.html')
 
 
